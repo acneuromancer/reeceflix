@@ -29,13 +29,8 @@ class Account {
     }
 
     public function login($un, $pw) {
-        // echo "From login(): <br>";
-        // echo $un . "<br>";
-        // echo $pw . "<br>";
-
         $pw = hash("sha512", $pw);
-        // echo $pw . "<br>";
-
+        
         $query = $this->con->prepare("SELECT * FROM users WHERE username=:un AND password=:pw");
 
         $query->bindValue(":un", $un);

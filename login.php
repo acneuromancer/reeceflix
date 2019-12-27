@@ -9,10 +9,7 @@
   if (isset($_POST["submitButton"])) {
     $username = FormSanitizer::sanitizeFormUsername($_POST["username"]);
     $password = FormSanitizer::sanitizeFormPassword($_POST["password"]);
-    
-    // echo $username . "<br>";
-    // echo $password . "<br>";
-
+   
     $success = $account->login($username, $password);
     if ($success) {
       // Store session
