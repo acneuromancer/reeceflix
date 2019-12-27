@@ -67,8 +67,7 @@ body {
   line-height: 32px;
   margin: 0;
   padding-top: 16px;
-  color:
-  #000;
+  color: #000;
 }
 
 .column .header span {
@@ -77,4 +76,10 @@ body {
 
 .column .header img {
   width: 100px;
+}
+
+.signInMessage {
+  font-size: 14px;
+  font-weight: 400;
+  text-decoration: none;
 }
