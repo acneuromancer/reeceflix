@@ -15,10 +15,39 @@ class Account {
         $this->validateEmails($em, $em2);
         $this->validatePasswords($pw, $pw2);
 
+        /*
+            To debug:
+            $query->execute();
+            var_dump($query->errorInfo());
+        */
+
         if (empty($this->errorArray)) {
-            return $this->insertUserDetails($fn, $ln, $un, $em, $em2, $pw, $pw2);
+            return $this->insertUserDetails($fn, $ln, $un, $em, $pw);
         }
 
+        return false;
+    }
+
+    public function login($un, $pw) {
+        // echo "From login(): <br>";
+        // echo $un . "<br>";
+        // echo $pw . "<br>";
+
+        $pw = hash("sha512", $pw);
+        // echo $pw . "<br>";
+
+        $query = $this->con->prepare("SELECT * FROM users WHERE username=:un AND password=:pw");
+
+        $query->bindValue(":un", $un);
+        $query->bindValue(":pw", $pw);
+
+        $query->execute();
+
+        if ($query->rowCount() == 1) {
+            return true;
+        }        
+        
+        array_push($this->errorArray, Constants::$loginFailed);
         return false;
     }
 
