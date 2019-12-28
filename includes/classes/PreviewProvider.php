@@ -19,11 +19,16 @@ class PreviewProvider {
        $preview = $entity->getPreview();
        $thumbnail = $entity->getThumbnail();
 
-       return "<div>
-                <img src='$thumbnail' class='previewImage' hidden>
-                <video autoplay muted class='previewVideo'>
-                    <source src='$preview' type='video/mp4' />
-                </video>
+       return "<div class='previewContainer'>
+                    <img src='$thumbnail' class='previewImage' hidden>
+                    <video autoplay muted class='previewVideo'>
+                        <source src='$preview' type='video/mp4' />
+                    </video>
+
+                    <div class='previewOverlay'>
+                        hello
+                    </div>
+
                 </div>";
     }
 
