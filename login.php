@@ -7,10 +7,10 @@ require_once("includes/classes/Constants.php");
 $account = new Account($con);
 
 if (isset($_POST["submitButton"])) {
-$username = FormSanitizer::sanitizeFormUsername($_POST["username"]);
-$password = FormSanitizer::sanitizeFormPassword($_POST["password"]);
+    $username = FormSanitizer::sanitizeFormUsername($_POST["username"]);
+    $password = FormSanitizer::sanitizeFormPassword($_POST["password"]);
 
-$success = $account->login($username, $password);
+    $success = $account->login($username, $password);
     if ($success) {
         $_SESSION["userLoggedIn"] = $username;
         header("Location: index.php");
