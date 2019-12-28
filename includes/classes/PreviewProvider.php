@@ -26,7 +26,10 @@ class PreviewProvider {
                     </video>
 
                     <div class='previewOverlay'>
-                        hello
+                        <div class='mainDetails'>
+                            <h3>$name</h3>
+                        
+                        </div>
                     </div>
 
                 </div>";
