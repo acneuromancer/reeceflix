@@ -46,7 +46,7 @@ class SeasonProvider {
                     <div class='episodeContainer'>
                         <div class='contents'>
                             <img src='$thumbnail'>
-                            <div class='videoinfo'>
+                            <div class='videoInfo'>
                                 <h4>$title</h4>
                                 <span>$description</span>
                             </div>
