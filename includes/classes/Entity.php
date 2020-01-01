@@ -34,5 +34,12 @@ class Entity {
         return $this->sqlData["preview"];
     }
 
+    public function getSeasons() {
+        $query = $this->con->prepare("SELECT * FROM WHERE entityId=:id 
+                                AND isMovie=0 ORDER BY season, episode ASC");
+        $query->bindValue(":id", $entity->getId());
+        $query->execute();
+    }
+
 }
 ?>
