@@ -183,7 +183,7 @@ button i {
 
 }
 
-.entities
+.entities,
 .videos {
     overflow-x: auto;
     overflow-y: hidden;
@@ -237,4 +237,8 @@ button i {
 .episodeContainer .videoInfo {
     max-height: 200px;
     overflow-y: auto;
+}
+
+.previewCategories.noScroll .category .entities {
+    white-space: normal;
 }
