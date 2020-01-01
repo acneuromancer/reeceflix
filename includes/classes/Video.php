@@ -9,7 +9,7 @@ class Video {
         if (is_array($input)) {
             $this->sqlData = $input;
         } else {
-            $query = $this->con->prepare("SELECT * FROM entities WHERE id=:id");
+            $query = $this->con->prepare("SELECT * FROM videos WHERE id=:id");
             $query->bindValue(":id", $input);
             $query->execute();
 

@@ -35,7 +35,7 @@ class Entity {
     }
 
     public function getSeasons() {
-        $query = $this->con->prepare("SELECT * FROM WHERE entityId=:id 
+        $query = $this->con->prepare("SELECT * FROM videos WHERE entityId=:id 
                                 AND isMovie=0 ORDER BY season, episode ASC");
         $query->bindValue(":id", $this->getId());
         $query->execute();
@@ -50,7 +50,7 @@ class Entity {
             }
 
             $currentSeason = $row["season"];
-            $videos[] = new Vide($this->con, $row);            
+            $videos[] = new Video($this->con, $row);            
         }
 
         if (sizeof($videos) != 0) {
