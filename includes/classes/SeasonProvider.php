@@ -9,9 +9,9 @@ class SeasonProvider {
         $this->username = $username;
     }
 
-    public function creete($entity) {
+    public function create($entity) {
        $seasons = $entity->getSeasons();
     }
-    
+
 }
 ?>
