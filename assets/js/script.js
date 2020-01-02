@@ -10,3 +10,7 @@ function previewEnded() {
     $(".previewVideo").toggle(); // Toggles the hidden/nonhidden property of the element.
     $(".previewImage").toggle();
 }
+
+function goBack() {
+    window.history.back();
+}
