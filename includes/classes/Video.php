@@ -72,5 +72,15 @@ class Video {
         return $this->slqData["isMovie"] == 1;
     }
 
+    public function isInProgress($username) {
+        $query = $this->con->prepare("SELECT * FROM videoProgress
+                                    WHERE videoId=:videoId AND username=:username");
+        $query->bindValue(":videoId", $this->getId());
+        $query->bindValue(":username", $username);
+        $query->execute();
+
+        return $query->rowCount() != 0;
+    }
+
 }
 ?>
