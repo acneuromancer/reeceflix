@@ -219,13 +219,14 @@ button i {
 .episodeContainer {
 	display: inline-flex;
 	justify-content: center;
-	margin-right: 4px;
+    margin-right: 4px;
 }
 
 .episodeContainer .contents {
     display: flex;
     flex-direction: column;
     width: 230px;
+    position: relative;
 }
 
 .episodeContainer img {
@@ -291,4 +292,12 @@ button i {
 
 .watchNav {
     z-index: 2;
+}
+
+.seen {
+   color: #2ecc71;
+   font-size: 26px;
+   position: absolute;
+   top: 5px;
+   left: 5px; 
 }
