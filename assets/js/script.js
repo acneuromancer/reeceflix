@@ -94,6 +94,8 @@ function restartVideo() {
 }
 
 function watchVideo(videoId) {
+    console.log("Hello from watchVideo()");
+    console.log(videoId);
     window.location.href = "watch.php?id=" + videoId;
 }
 
