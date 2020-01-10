@@ -62,6 +62,18 @@ class Account {
         return $query->execute();
     }
 
+    public function updateDetails($fn, $ln, $em, $un) {
+        $this->validateFirstName($fn);
+        $this->validateLastName($ln);
+        $this->validateNewEmail($em, $un);
+
+        if (empty($this->errorArray)) {
+            return true;
+        }
+
+        return false;
+    }
+
     private function validateFirstName($fn) {
         if (strlen($fn) < 2 || strlen($fn) > 25) {
             array_push($this->errorArray, Constants::$firstNameCharacters);
@@ -102,6 +114,23 @@ class Account {
 
         $query = $this->con->prepare("SELECT * FROM users WHERE email=:em");
         $query->bindValue(":em", $em);
+        $query->execute();
+
+        if ($query->rowCount() != 0) {
+            array_push($this->errorArray, Constants::$emailTaken);
+        }
+    }
+
+    private function validateNewEmail($em, $un) {
+        if (!filter_var($em, FILTER_VALIDATE_EMAIL)) {
+            array_push($this->errorArray, Constants::$emailInvalid);
+            return;
+        }
+
+        $query = $this->con->prepare("SELECT * FROM users WHERE email=:em AND username != :un");
+        $query->bindValue(":em", $em);
+        $query->bindValue(":un", $un);
+        
         $query->execute();
 
         if ($query->rowCount() != 0) {
